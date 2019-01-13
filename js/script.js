@@ -1,4 +1,11 @@
 
+function getAPIKey(){
+	return config.apiKey;
+}
+	
+	
+
+
 function loadData() {
 
     var $body = $('body');
@@ -21,8 +28,11 @@ function loadData() {
 	var street = $('#street').val();
 	var city = $('#city').val();
 	console.log(street + ' ' +  city);
-	
+	key = getAPIKey();
+	var locString = 'http://maps.googleapis.com/maps/api/streetview?size=600x300&location='+ street + ',' + city + '&key=' + key;
+	console.log(locString);
 
+	$body.append('<img class="bgimg" src="'+locString+'">');
     return false;
 };
 
